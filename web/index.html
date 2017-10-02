@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<!--
+
+Autor: Karla Alejandra Gracia Barajas 
+Equipo Cornamenta Software 
+Login y Registro
+
+-->
+<html>
+    <head>
+        <title>INICIO</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/general.css">
+        <style>
+            /**
+            Diseño del cuerpo de la pagina
+            **/
+            body{
+                background: #F781BE;
+            }
+            .forms {
+                margin: 30px auto;
+                width: 70%;
+                padding: 5px;
+                font-size: 30px;
+            }
+
+            #imagenlogo{
+                width: 30%; 
+                height: 20%;
+                padding-top: 0; 
+                border-radius:100%;
+            }
+            input[type=text],[type=password]{
+                width: 60%;
+                padding: 12px 15px;
+                margin: 10px auto;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                box-sizing: border-box;
+                font-family: Arial;
+            }
+
+            input[type=submit] {
+                width: 25%;
+                background: #EFFBFB;
+                color: black;
+                padding: 10px 15px;
+                margin: 10px auto;;
+                cursor: pointer;
+                font-family: Arial;
+                font-size: 20px;
+                border-radius: 4px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-color: #FA58AC;
+                text-align: center;
+            }
+            /**
+           Metodos responsive
+            **/
+            @media only screen and (max-width: 919px){
+
+                input[type=submit]{
+                    width: 50%;
+                    display: inline-block;
+                }
+            }
+            @media only screen and (max-width: 681px){
+                input[type=submit]{
+                    display: inline-block;
+                    width: 50%;
+                }
+            }
+            @media only screen and (max-width: 327px){
+                input[type=submit]{
+                    display: inline-block;
+                    font-size: 15px;
+                    width: 60%;
+                }
+            }
+            @media only screen and (max-width: 919px){
+                #imagenlogo{
+                    width: 50%; 
+                    height: 40%;
+                    margin-top: 10px; 
+                }
+            }
+            @media only screen and (max-width: 524px){
+                input[type=text],[type=password]{
+                    width: 85%;
+                }
+                #imagenlogo{
+                    width: 60%; 
+                    height: 50%;
+                    margin-top: 10px; 
+                }
+            }
+            @media only screen and (max-width: 413px){
+                input[type=text],[type=password]{
+                    width: 95%;
+                    font-size: 10px;
+                }
+                #imagenlogo{
+                    width: 80%; 
+                    height: 70%;
+                    margin-top: 10px; 
+                }
+            }
+        </style>
+        <script>
+            /**
+             * Metodo para la validacion de los campos
+             * @returns {undefined}
+             */
+            function llenado() {
+                var nom = document.getElementById("nombre");
+                var con = document.getElementById("contra");
+                if (nom.value === "") {
+                    alert("Debes ingresar tu nombre de usuario para ingresar");
+                    nom.focus();
+                } else
+                if (con.value === "") {
+                    alert("Debes ingresar tu contraseña para ingresar");
+                    con.focus();
+                } else {
+                    document.location = "pages/PerfilAlumno.html";
+                }
+                if (nom.value === "ubaldarito" && con.value === "123") {
+                    document.location = "pages/sesionadministrador.html";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form id="form" action="jsps/iniciasesion.jsp" method="post">
+            <div class="forms">
+                <center>
+                    <img id="imagenlogo" src="Captura.PNG" alt="woop woop"><br>
+                    <span style="font-size: 2em;">Iniciar sesi&oacute;n</span>
+                </center>
+                <center>
+                    <input maxlength="15" type="text" id="usuario"  name="boleta"  required placeholder="Usuario" >
+                    <input  type="password" name="contrasenia" required id="contra" placeholder="Contrase&ntilde;a">
+                </center>
+                <center>
+                    <input type="submit" value="Aceptar" name="finalizar" onclick="llenado();">
+                </center>
+                <center>
+                    <p style="font-size: 19px"> 
+                        Recuperar contraseña
+                        <a href="">Da click aqu&iacute;</a>
+                    </p>
+                </center>
+            </div>
+        </form>
+    </body>
+</html>
